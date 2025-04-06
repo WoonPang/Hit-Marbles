@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallCreateButtonController : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class WallCreateButtonController : MonoBehaviour
 
     public bool isSelect;
 
+    public Button button;
+
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+    }
     private void OnEnable()
     {
         UpdateSelect(false);
@@ -40,9 +47,10 @@ public class WallCreateButtonController : MonoBehaviour
             Debug.Log("º® »ý¼º!!");
 
             UpdateSelect(false);
+            WallManager.instance.CreatWallAndInsertArray(prefabNum);
             createWallUI.DeActivateSelectWallUI();
 
-            WallManager.instance.CreatWallAndInsertArray(prefabNum);
+            
             
             return;
         }

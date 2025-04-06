@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public class WallController : MonoBehaviour
 {
@@ -8,9 +10,20 @@ public class WallController : MonoBehaviour
     public bool isSelect = false;
 
     public GameObject SelectUI;
+
+    private SpriteRenderer wallColor;
+    private int wallType;
+
     void Start()
     {
         SelectUI.SetActive(false);
+        wallColor = GetComponent<SpriteRenderer>();
+
+        if (wallColor.color == Color.red)
+            wallType = WallManager.Red;
+        else
+            wallType = WallManager.Blue;
+
     }
 
     void Update()
@@ -20,7 +33,7 @@ public class WallController : MonoBehaviour
 
     private void TurnWall() // 벽 회전 함수
     {
-        if (!isSelect) return;
+        if (!isSelect || WallManager.instance.isActiveWallManageUI == true) return;
 
         float direction = Input.GetAxisRaw("Horizontal");
         if (direction != 0)
@@ -30,6 +43,9 @@ public class WallController : MonoBehaviour
     }
     void OnMouseDown()
     {
+        if ((WallManager.instance.isActiveWallManageUI == true) ||
+            (wallType != WallManager.instance.Turn))
+            return;
         Debug.Log("드래그 시작!!");
         WallManager.instance.DeselectWallAll(gameObject);
         isSelect = true;
@@ -42,6 +58,9 @@ public class WallController : MonoBehaviour
     }
     void OnMouseDrag()
     {
+        if ( (WallManager.instance.isActiveWallManageUI == true) || 
+            (wallType != WallManager.instance.Turn) )
+            return;
         Debug.Log("드래그 중!!!");
         Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y,
             Camera.main.WorldToScreenPoint(transform.position).z);

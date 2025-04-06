@@ -205,7 +205,7 @@ MonoBehaviour:
       - m_Target: {fileID: 680835297}
         m_TargetAssemblyTypeName: CreateWallUIManager, Assembly-CSharp
         m_MethodName: ActivateSelectWallUI
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -401,6 +401,7 @@ MonoBehaviour:
   selectUI: {fileID: 459361231}
   createWallUI: {fileID: 680835297}
   isSelect: 0
+  button: {fileID: 334499188}
 --- !u!1 &371121243
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,10 +435,10 @@ MonoBehaviour:
   - {fileID: 6769490931594958524, guid: 73e71b99e1e4c5040838dbf4f751a0f1, type: 3}
   - {fileID: 1239068701829444372, guid: bce378f6ad9c7d445a31d10f7cd163ad, type: 3}
   - {fileID: 3215360400203678753, guid: 696f6631c8ea654459619a3e84b6504f, type: 3}
-  walls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  redWalls: []
+  blueWalls: []
+  turn: 1
+  isActiveWallManageUI: 0
 --- !u!4 &371121245
 Transform:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &459361232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -988,6 +989,7 @@ MonoBehaviour:
   selectUI: {fileID: 1572160279}
   createWallUI: {fileID: 680835297}
   isSelect: 0
+  button: {fileID: 608188255}
 --- !u!1 &680835293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1085,7 @@ MonoBehaviour:
   - {fileID: 334499186}
   - {fileID: 608188253}
   selectWallUI: {fileID: 598403574}
+  selectText: {fileID: 2111479902}
 --- !u!1 &870663339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1337,7 @@ MonoBehaviour:
   selectUI: {fileID: 1688885728}
   createWallUI: {fileID: 680835297}
   isSelect: 0
+  button: {fileID: 1106600185}
 --- !u!1 &1572160279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1572160280
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1426,7 +1430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1688885729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1609,7 +1613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Wall Style
+  m_text: "Select Wall Style \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ce7644252925eab4e84d0558ba54c531, type: 2}
   m_sharedMaterial: {fileID: 3770457350409169455, guid: ce7644252925eab4e84d0558ba54c531, type: 2}
